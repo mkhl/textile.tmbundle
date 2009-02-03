@@ -374,14 +374,39 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.link.title.textile</string>
+							<string>punctuation.definition.link.title.textile</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.link.description.title.textile</string>
+							<string>string.other.link.title.textile</string>
 						</dict>
 						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.link.description.title.textile</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>string.other.link.description.title.textile</string>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.link.description.title.textile</string>
+						</dict>
+						<key>6</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.link.title.textile</string>
+						</dict>
+						<key>7</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.separator.link.textile</string>
+						</dict>
+						<key>8</key>
 						<dict>
 							<key>name</key>
 							<string>markup.underline.link.textile</string>
@@ -389,7 +414,7 @@
 					</dict>
 					<key>match</key>
 					<string>(?x)
-								"								# Start name, etc
+								(")								# Start name, etc
 									(?:							# Attributes
 										# I swear, this is how the language is defined,
 										# couldnt make it up if I tried.
@@ -402,8 +427,9 @@
 									)?
 									([^"]+?)					# Link name
 									\s?							# Optional whitespace
-									(?:\(([^)]+?)\))?
-								":								# End Name
+									(?:(\()([^)]+?)(\)))?		# Optional link title
+								(")								# End Name
+								(:)
 								(\S*?(?:\w|\/|;))				# URL
 								(?=[^\w\/;]*?(&lt;|\s|$))			# Catch closing punctuation
 																#  and end of meta.link
