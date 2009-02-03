@@ -173,6 +173,41 @@
 			</array>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.reference.textile</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>constant.other.reference.link.textile</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.reference.textile</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>markup.underline.link.textile</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?x:
+				^
+				(\[)([^\]]+)(\])		# Reference name
+				(\S+?)					# The URL
+				\s*						# Optional whitespace
+				$
+			)</string>
+			<key>name</key>
+			<string>meta.link.reference.def.textile</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>^(?=\S)</string>
 			<key>end</key>
